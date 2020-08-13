@@ -38,6 +38,7 @@ module.exports = {
         "basic_string",
         "button_1_status",
         "sw1_press",
+        "analog_read_nano_robot",
         "nano_beep",
         {
           xml:
@@ -74,6 +75,11 @@ module.exports = {
         {
             xml : 
             `<block type="nano_motor_forward2">
+                 <value name="status">
+                    <shadow type="math_number">
+                        <field name="NUM">1</field>
+                    </shadow>
+                </value>
                 <value name="speed1">
                     <shadow type="math_number">
                         <field name="NUM">50</field>

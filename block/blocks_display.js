@@ -73,11 +73,29 @@ module.exports = function(Blockly) {
       this.setHelpUrl("");
     }
   };
+  Blockly.Blocks["analog_read_nano_robot"] = {
+    init: function() {
+      this.appendDummyInput()
+          .appendField("Analog Read")
+          .appendField(new Blockly.FieldDropdown([
+                                              ["A0 (14)", "14"],
+                                              ["A1 (15)", "15"],
+                                              ["A2 (16)", "16"],
+                                              ["A3 (17)", "17"],
+                                              ["A6 (19)", "19"],
+                                              ["A7 (20)", "20"]]), "pin");
+      this.setInputsInline(true);
+      this.setOutput(true, "Number");
+      this.setColour(45);
+   this.setTooltip("read analog value from pin");
+   this.setHelpUrl("");
+    }
+  };
   Blockly.Blocks['nano_servo'] = {
     init: function() {
       this.appendDummyInput()
         .appendField("set servo")
-        .appendField(new Blockly.FieldDropdown([["D11","1"], ["D6","2"], ["D5","3"], ["D4","4"]]), "ch");
+        .appendField(new Blockly.FieldDropdown([["D11","1"], ["D8","2"], ["D7","3"], ["D4","4"]]), "ch");
       this.appendValueInput("angle")
         .setCheck("Number")
         .appendField("degree");

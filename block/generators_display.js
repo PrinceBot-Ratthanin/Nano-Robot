@@ -24,6 +24,11 @@ module.exports = function(Blockly){
       `;
     return code;
   };
+  Blockly.JavaScript['analog_read_nano_robot'] = function(block) {
+    var value_pin = block.getFieldValue('pin');  
+    var code = `analogRead(${value_pin})`;
+    return [code, Blockly.JavaScript.ORDER_ATOMIC];
+  };
   Blockly.JavaScript['nano_servo'] = function(block) {
     var dropdown_ch = block.getFieldValue('ch');
     var value_angle = Blockly.JavaScript.valueToCode(block, 'angle', Blockly.JavaScript.ORDER_ATOMIC) || 0;
@@ -139,7 +144,7 @@ module.exports = function(Blockly){
     if(dropdown_status == 1){
       var code = "display.display();\n";
     }
-    else if(dropdown_ch == 2){
+    else if(dropdown_status == 2){
       var code = "display.clearDisplay();\n";
     }
     return code;
